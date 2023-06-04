@@ -1,0 +1,15 @@
+D:\OneDrive\Cursos\UCIC\WindowsForms\Semana3\CS-Actividad2\bin\Debug\net7.0\CS-Actividad2.exe
+D:\OneDrive\Cursos\UCIC\WindowsForms\Semana3\CS-Actividad2\bin\Debug\net7.0\CS-Actividad2.deps.json
+D:\OneDrive\Cursos\UCIC\WindowsForms\Semana3\CS-Actividad2\bin\Debug\net7.0\CS-Actividad2.runtimeconfig.json
+D:\OneDrive\Cursos\UCIC\WindowsForms\Semana3\CS-Actividad2\bin\Debug\net7.0\CS-Actividad2.dll
+D:\OneDrive\Cursos\UCIC\WindowsForms\Semana3\CS-Actividad2\bin\Debug\net7.0\CS-Actividad2.pdb
+D:\OneDrive\Cursos\UCIC\WindowsForms\Semana3\CS-Actividad2\obj\Debug\net7.0\CS-Actividad2.csproj.AssemblyReference.cache
+D:\OneDrive\Cursos\UCIC\WindowsForms\Semana3\CS-Actividad2\obj\Debug\net7.0\CS-Actividad2.GeneratedMSBuildEditorConfig.editorconfig
+D:\OneDrive\Cursos\UCIC\WindowsForms\Semana3\CS-Actividad2\obj\Debug\net7.0\CS-Actividad2.AssemblyInfoInputs.cache
+D:\OneDrive\Cursos\UCIC\WindowsForms\Semana3\CS-Actividad2\obj\Debug\net7.0\CS-Actividad2.AssemblyInfo.cs
+D:\OneDrive\Cursos\UCIC\WindowsForms\Semana3\CS-Actividad2\obj\Debug\net7.0\CS-Actividad2.csproj.CoreCompileInputs.cache
+D:\OneDrive\Cursos\UCIC\WindowsForms\Semana3\CS-Actividad2\obj\Debug\net7.0\CS-Actividad2.dll
+D:\OneDrive\Cursos\UCIC\WindowsForms\Semana3\CS-Actividad2\obj\Debug\net7.0\refint\CS-Actividad2.dll
+D:\OneDrive\Cursos\UCIC\WindowsForms\Semana3\CS-Actividad2\obj\Debug\net7.0\CS-Actividad2.pdb
+D:\OneDrive\Cursos\UCIC\WindowsForms\Semana3\CS-Actividad2\obj\Debug\net7.0\CS-Actividad2.genruntimeconfig.cache
+D:\OneDrive\Cursos\UCIC\WindowsForms\Semana3\CS-Actividad2\obj\Debug\net7.0\ref\CS-Actividad2.dll
