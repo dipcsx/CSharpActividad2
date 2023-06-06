@@ -11,7 +11,6 @@ Console.WriteLine("******************************************\n");
 foreach(string campo in camposDocente){
     string Error;
     do{
-        //{"Nombres","Curso","Semestre","Aula","Nro. de Alumnos"};
         Console.Write($"{campo}: ");
         datosDocente[Array.IndexOf(camposDocente,campo)]=Console.ReadLine() ?? "";
         datosDocente[Array.IndexOf(camposDocente,campo)]=datosDocente[Array.IndexOf(camposDocente,campo)].ToUpper();
@@ -70,7 +69,7 @@ if(opReg=="Y"){
         
         if(promedio>=criterioAprobacion) datosAlumnos[i,6]="PROMOVIDO";
         else datosAlumnos[i,6]="REPITENTE";
-
+        //Posible funcion para ordenar mejor
         //datosAlumnos[i,6]=EvaluarPromedio(criterioAprobacion,promedio);
 
         int promedioEntero=Convert.ToInt32(promedio);//Convierto el Promedio decimal a Entero
@@ -80,7 +79,7 @@ if(opReg=="Y"){
     }
 
     
-    Console.WriteLine("-------------------------------------------------");
+    Console.WriteLine("--------------------------------------------------------------------");
     string opProm;
     do{
     Console.Write("Registro terminado / desea ver el resumen de notas y promedios (Y/N): ");
@@ -91,7 +90,7 @@ if(opReg=="Y"){
         Console.WriteLine($"Se presento el error: {ErrorOp}");
         Console.WriteLine($"Reintente...");
     }
-    Console.WriteLine("-------------------------------------------------");
+    Console.WriteLine("--------------------------------------------------------------------");
     }while(ErrorOp!="");
 
     if(opProm=="Y"){
@@ -110,39 +109,27 @@ else{
 Console.ReadLine();
 
 static void ImprimirRegistro(string[] datosDocente, string[,] datosAlumnos){
-    //{"Nombres","Curso","Semestre","Aula","Nro. de Alumnos"};
-    //{"id","Nombres","Nota parcial 1","Nota parcial 2","Nota parcial 3","promedio","estado"};    
     int nroAlumnos=Convert.ToInt32(datosDocente[4]);
-    ColocarCaracter(72,"+");
-    Console.Write($"\n+CURSO: {datosDocente[1]}");
-    ColocarCaracter(71-(8+datosDocente[1].Length)," ");
-    Console.WriteLine("+");
-    Console.Write($"+DOCENTE: {datosDocente[0]}");
-    ColocarCaracter(71-(10+datosDocente[0].Length)," ");
-    Console.WriteLine("+");
-    Console.Write($"+SEMESTRE: {datosDocente[2]}                        AULA: {datosDocente[3]}");
-    ColocarCaracter(71-(41 + datosDocente[2].Length + datosDocente[3].Length)," ");
-    Console.WriteLine("+");
-    ColocarCaracter(72,"+");
-    Console.WriteLine("\n+ID+ ALUMNO                                  + PF + CONDICION FINAL    +");
-    ColocarCaracter(72,"+");
-    Console.WriteLine();
-
+    //Imprimos cabecera de Libreta de promedios.    
+    Console.WriteLine(GenStr(72,"+"));
+    Console.WriteLine($"+CURSO: {datosDocente[1]}{GenStr(72-(9+datosDocente[1].Length)," ")}+");
+    Console.WriteLine($"+DOCENTE: {datosDocente[0]}{GenStr(72-(11+datosDocente[0].Length)," ")}+");
+    Console.WriteLine($"+SEMESTRE: {datosDocente[2]}                        AULA: {datosDocente[3]}{GenStr(72-(42 + datosDocente[2].Length + datosDocente[3].Length)," ")}+");
+    Console.WriteLine(GenStr(72,"+"));
+    Console.WriteLine("+ID+ ALUMNO                                  + PF + CONDICION FINAL    +");
+    Console.WriteLine(GenStr(72,"+"));
+    // fin cabecera
+    //Cuerpo o contenido de los datos de cada alumno
     for(int i=0;i<nroAlumnos;i++){
-        Console.Write($"+{datosAlumnos[i,0]}+ {datosAlumnos[i,1]}");
-        ColocarCaracter(45-(3+datosAlumnos[i,0].Length + datosAlumnos[i,1].Length)," ");
-        Console.Write($"+ {datosAlumnos[i,5]} + {datosAlumnos[i,6]}");
-        ColocarCaracter(10," ");
-        ColocarCaracter(1,"+");
-        Console.WriteLine();
-
+        Console.WriteLine($"+{datosAlumnos[i,0]}+ {datosAlumnos[i,1]}{GenStr(45-(3+datosAlumnos[i,0].Length + datosAlumnos[i,1].Length)," ")}+ {datosAlumnos[i,5]} + {datosAlumnos[i,6]}{GenStr(10," ")}+");
     }
-    ColocarCaracter(72,"+");
+    Console.WriteLine(GenStr(72,"+"));
 }
-
 //Funcion para escribir el caracter indicado cuantas veces se indica
-static void ColocarCaracter(int cant,string caracter){ 
-    for(int i=1;i<=cant;i++) Console.Write($"{caracter}");
+static string GenStr(int cant,string caracter){ 
+    string cadenaAdi="";
+    for(int i=1;i<=cant;i++) cadenaAdi = cadenaAdi + caracter;
+    return cadenaAdi;
 }
 static bool SonLetras(string cadena){
     bool validacion=true;
@@ -182,13 +169,13 @@ static string ValidarCampo(string datos, string campo=""){
 	if(datos==""){
 		mensajeError="Campo vacío";
 	} else if(!SonLetras(datos) && campo=="Nombres"){
-		mensajeError="Nombre con numeros";		
+		mensajeError="Nombre con numeros.";		
 	} else if(!EsNumero(datos) && campo=="Nro. de Alumnos"){
-		mensajeError="Nro de alumnos con letras o con OverFlow";
+		mensajeError="Nro de alumnos con letras o con OverFlow.";
 	} else if((!EsNumero(datos) && campo=="Nota parcial 1") || 
         (!EsNumero(datos) && campo=="Nota parcial 2") || 
         (!EsNumero(datos) && campo=="Nota parcial 3")){
-		mensajeError="Notas con letras";
+		mensajeError="Notas con letras o no enteros.";
 	} else if((campo=="YN" && datos!="Y") && (campo=="YN" && datos!="N")){
         mensajeError="Debe ingresar solo Y o N.";
     }	
